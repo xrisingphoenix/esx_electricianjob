@@ -185,6 +185,10 @@ Translation = {
 		['vehicle_not_in_range'] = 'Your Vehicle is not in Range',
 		['toolkit_needed'] = 'You need your Toolkit',
 
+		['lib_title_menu'] = 'Electric Job',
+		['lib_start_job'] = 'Start Job',
+		['lib_start_job_desc'] = 'Start the Job',
+		
 		['lib_clothing_menu'] = 'Change youre Clothing',
 		['lib_clothing_menu_desc'] = 'Change to Job Outfit',
 
