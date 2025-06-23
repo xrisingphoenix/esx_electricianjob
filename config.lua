@@ -12,6 +12,8 @@ Config.CarPlateName = 'ELECTRIC' -- The Name of the Vehicle Plate
 
 Config.Waittime = 5 -- The Wait Time in Seconds that the Player have to wait after Minigame
 
+Config.ToolKitTrunk = false --- !! set to true if the text doesnt show up with "take toolkit"
+
 Config.UseMiniGame = {
 	enable = true, -- Enable / Disable Minigames
 	fixwiring = true,-- https://github.com/mxlolshop/minigameFixWiring/
