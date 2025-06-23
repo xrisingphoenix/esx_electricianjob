@@ -128,7 +128,13 @@ function startjob(v)
 				if step1 then 
 					local playerPed = PlayerPedId()
 					local vehicle = missionvehicle
-					local trunkpos = GetWorldPositionOfEntityBone(vehicle, GetEntityBoneIndexByName(vehicle, "boot"))
+					local bone = ""
+					if Config.ToolKitTrunk then 
+						bone = "door_pside_r"
+					else 
+						bone = "boot"
+					end
+					local trunkpos = GetWorldPositionOfEntityBone(vehicle, GetEntityBoneIndexByName(vehicle, bone))
 					local playerCoords = GetEntityCoords(PlayerPedId())
 					local Distance3 = Vdist(playerCoords, trunkpos)
 					local dst = GetDistanceBetweenCoords(playercoords2, results.x, results.y, results.z)
@@ -142,7 +148,13 @@ function startjob(v)
 							if Distance3 < 1 then 
 								if IsControlJustReleased(0, 38) then 
 									busy3 = true
-									SetVehicleDoorOpen(missionvehicle, 5, false, false)
+									local doorIndex
+									if Config.ToolKitTrunk then 
+										doorIndex = 3
+									else 
+										doorIndex = 5
+									end
+									SetVehicleDoorOpen(missionvehicle, doorIndex, false, false)
 									Citizen.Wait(500)
 									TaskStartScenarioInPlace(playerPed, 'PROP_HUMAN_BUM_BIN', 0, true)
 									Citizen.Wait(2500)
@@ -156,7 +168,7 @@ function startjob(v)
 									end
 									TaskPlayAnim(PlayerPedId(), 'move_weapon@jerrycan@generic', 'idle', 8.0, 8.0, -1, 51, 0, 0, 0, 0)
 									Citizen.Wait(1000)
-									SetVehicleDoorShut(vehicle, 5, false)
+									SetVehicleDoorShut(vehicle, doorIndex, false)
 									step5 = true 
 								end
 							end
